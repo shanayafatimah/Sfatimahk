@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fatimah Khalid | The Data Science Issue</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff7eb6;--blush:#ffe3ee;--rose:#ffc2dc;--maroon:#6d0f2e;--deep:#3d0618;--blue:#2f5bff;--sky:#bcd0ff;--ink:#2a0a16;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--blush);color:var(--ink);font:400 1.05rem/1.7 var(--sans)}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.05}
+a{color:inherit}
+
+/* Ticker */
+.ticker{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;font:700 .8rem var(--sans);letter-spacing:.18em;padding:.55rem 0}
+.ticker div{display:inline-block;padding-left:100%;animation:run 28s linear infinite}
+@keyframes run{to{transform:translateX(-100%)}}
+
+/* Cover */
+.cover{position:relative;overflow:hidden;min-height:100vh;padding:1.2rem 5% 2rem;background:linear-gradient(160deg,var(--rose),var(--pink) 55%,#ff5f9f);display:flex;flex-direction:column}
+.topline{display:flex;justify-content:space-between;font:700 .75rem var(--sans);letter-spacing:.22em;color:var(--deep);border-bottom:2px solid var(--deep);padding-bottom:.6rem}
+.mast{font:900 clamp(4.2rem,21vw,15rem)/.85 var(--serif);color:var(--maroon);letter-spacing:-.03em;margin:1rem 0 0;text-align:center}
+.mast span{display:inline-block;animation:drop .8s cubic-bezier(.2,.9,.3,1.2) both}
+.mast span:nth-child(2){animation-delay:.08s}.mast span:nth-child(3){animation-delay:.16s}.mast span:nth-child(4){animation-delay:.24s}.mast span:nth-child(5){animation-delay:.32s}.mast span:nth-child(6){animation-delay:.4s}.mast span:nth-child(7){animation-delay:.48s}
+@keyframes drop{from{transform:translateY(-120%) rotate(-8deg);opacity:0}}
+.sub{text-align:center;font:italic 700 clamp(1.1rem,3.4vw,1.9rem) var(--serif);color:var(--blue);margin:.3rem 0 1rem}
+.stage{position:relative;flex:1;display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:1rem;align-items:center}
+.lines{font:700 .95rem/1.3 var(--sans);color:var(--deep)}
+.lines p{margin:0 0 1.2rem}
+.lines b{display:block;font:900 1.25rem/1.1 var(--serif);color:var(--maroon)}
+.lines.r{text-align:right}
+.art{position:relative;height:clamp(240px,42vw,430px)}
+.art i{position:absolute;display:block}
+.c1{width:62%;aspect-ratio:1;border-radius:50%;background:var(--blue);left:19%;top:6%;animation:bob 6s ease-in-out infinite}
+.c2{width:48%;height:70%;border-radius:999px 999px 0 0;background:var(--maroon);left:6%;bottom:0;animation:bob 7s ease-in-out infinite reverse}
+.c3{width:34%;aspect-ratio:1;border-radius:50%;background:var(--blush);right:6%;bottom:6%;border:6px solid var(--maroon);animation:bob 5s ease-in-out infinite}
+.c4{width:22%;height:22%;background:var(--pink);right:12%;top:2%;transform:rotate(18deg);border:4px solid var(--deep);animation:bob 8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px)}}
+.art .tx{position:absolute;inset:auto 0 12% 0;text-align:center;font:900 clamp(1.1rem,3vw,1.8rem) var(--serif);color:#fff;mix-blend-mode:normal;text-shadow:0 2px 0 var(--deep)}
+.sticker{position:absolute;right:4%;bottom:14%;width:112px;height:112px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;text-align:center;font:900 .95rem/1.1 var(--sans);transform:rotate(-12deg);animation:wob 3s ease-in-out infinite;border:3px dashed #fff}
+@keyframes wob{50%{transform:rotate(8deg) scale(1.08)}}
+.foot{display:flex;justify-content:space-between;align-items:end;margin-top:1rem;font:700 .75rem var(--sans);letter-spacing:.15em;color:var(--deep)}
+.bar{width:120px;height:44px;background:repeating-linear-gradient(90deg,var(--deep) 0 2px,transparent 2px 5px,var(--deep) 5px 6px,transparent 6px 10px)}
+@media(max-width:760px){.stage{grid-template-columns:1fr}.lines.r{text-align:left}.art{order:-1}}
+
+/* Contents */
+.toc{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;justify-content:center;padding:1.2rem 5%;background:var(--maroon);color:#fff;font:700 .85rem var(--sans);letter-spacing:.12em}
+.toc a{text-decoration:none;text-transform:uppercase;transition:color .2s}
+.toc a:hover{color:var(--pink)}
+.toc span{color:var(--pink);margin-right:.4rem}
+
+/* Articles */
+.page{max-width:1000px;margin:0 auto;padding:4.5rem 5%}
+.kicker{display:inline-block;font:700 .75rem var(--sans);letter-spacing:.25em;color:#fff;background:var(--blue);padding:.3rem .8rem;margin-bottom:1rem}
+.page h2{font-size:clamp(2.2rem,7vw,4.2rem);color:var(--maroon);margin-bottom:1.5rem}
+.page h2 em{color:var(--blue)}
+.cols{columns:2 280px;column-gap:2.4rem}
+.cols p:first-child::first-letter{float:left;font:900 5rem/.8 var(--serif);color:var(--maroon);padding:.35rem .6rem 0 0}
+.pull{margin:2rem 0 0;padding:1.4rem 1.6rem;background:var(--maroon);color:#fff;font:italic 700 clamp(1.3rem,3.5vw,2rem)/1.25 var(--serif);border-left:10px solid var(--pink)}
+.rule{border:0;border-top:3px double var(--maroon);margin:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
+.box{background:#fff;border:3px solid var(--maroon);padding:1.4rem;box-shadow:8px 8px 0 var(--pink);transition:transform .25s,box-shadow .25s}
+.box:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--blue)}
+.box h3{font-size:1.4rem;color:var(--maroon);margin-bottom:.3rem}
+.tag{font:700 .72rem var(--sans);letter-spacing:.15em;color:var(--blue);text-transform:uppercase}
+.box p{margin:.4rem 0 0}
+.tl{border-left:4px solid var(--maroon);margin-left:.4rem}
+.tl .e{position:relative;padding:0 0 1.8rem 1.6rem}
+.tl .e::before{content:"";position:absolute;left:-12px;top:.35rem;width:20px;height:20px;border-radius:50%;background:var(--pink);border:4px solid var(--maroon)}
+.tl .e h3{font-size:1.5rem;color:var(--maroon)}
+.tl .when{font:700 .8rem var(--sans);letter-spacing:.12em;color:var(--blue)}
+.chips{display:flex;flex-wrap:wrap;gap:.8rem}
+.chip{font:900 1.3rem var(--serif);padding:.7rem 1.5rem;border:3px solid var(--maroon);border-radius:999px;background:#fff;transition:.25s}
+.chip:hover{background:var(--blue);color:#fff;border-color:var(--blue);transform:rotate(-3deg) scale(1.06)}
+.letters{background:var(--maroon);color:#fff;text-align:center;padding:4.5rem 5%}
+.letters h2{color:#fff;font-size:clamp(2.2rem,7vw,4rem)}
+.letters p{color:#ffd3e6}
+.btn{display:inline-block;margin:.4rem;padding:.8rem 1.8rem;font:700 1rem var(--sans);text-decoration:none;letter-spacing:.06em;transition:transform .2s}
+.btn.p{background:var(--pink);color:var(--deep)}
+.btn.b{background:var(--blue);color:#fff}
+.btn:hover{transform:translateY(-4px)}
+footer{background:var(--deep);color:#e8b4cb;text-align:center;font:700 .75rem var(--sans);letter-spacing:.2em;padding:1.4rem}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s}
+.reveal.show{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="ticker"><div>NOW READING &nbsp;&#9733;&nbsp; SMART TRAFFIC SYSTEM PK &nbsp;&#9733;&nbsp; SPORTS EASE COMPLEX &nbsp;&#9733;&nbsp; FROM INTERN TO GENERAL DIRECTOR &nbsp;&#9733;&nbsp; WORKING SMARTER &nbsp;&#9733;&nbsp; BS DATA SCIENCE &nbsp;&#9733;&nbsp; ISSUE 01 &nbsp;&#9733;&nbsp;</div></div>
+
+<header class="cover">
+  <div class="topline"><span>ISSUE 01 &middot; 2026</span><span>THE DATA SCIENCE ISSUE</span><span>FREE</span></div>
+  <h1 class="mast" aria-label="Fatimah"><span>F</span><span>A</span><span>T</span><span>I</span><span>M</span><span>A</span><span>H</span></h1>
+  <div class="sub">Khalid &mdash; ideas into practical solutions</div>
+
+  <div class="stage">
+    <div class="lines">
+      <p><b>Smart Traffic System PK</b>AI on existing cameras to catch every rule violation</p>
+      <p><b>Sports Ease Complex</b>No more queues: pre-book your slot</p>
+    </div>
+    <div class="art" aria-hidden="true">
+      <i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i>
+      <div class="tx">BS DATA SCIENCE<br>3rd Semester</div>
+    </div>
+    <div class="lines r">
+      <p><b>Inside: the career</b>From Director of Communication to General Director</p>
+      <p><b>Machine learning</b>My internship at Technik Next</p>
+    </div>
+    <div class="sticker">NEW<br>SEASON<br>OF ME</div>
+  </div>
+
+  <div class="foot"><div class="bar"></div><span>SCROLL TO READ &#8595;</span><span>WORK SMARTER</span></div>
+</header>
+
+<nav class="toc">
+  <a href="#about"><span>02</span>About</a>
+  <a href="#education"><span>03</span>Education</a>
+  <a href="#career"><span>04</span>Career</a>
+  <a href="#stories"><span>05</span>Cover Stories</a>
+  <a href="#toolkit"><span>06</span>Toolkit</a>
+  <a href="#contact"><span>07</span>Letters</a>
+</nav>
+
+<section class="page reveal" id="about">
+  <span class="kicker">FEATURE</span>
+  <h2>Meet <em>Fatimah</em></h2>
+  <div class="cols">
+    <p>Hello! I am a 3rd semester BS Data Science student, trying to involve myself in the world of information technology and develop new skills. I turn my ideas into practical solutions.</p>
+    <p>Welcome to my portfolio, where I share my learning journey and some of my achievements. Think of this as the first issue of many.</p>
+  </div>
+  <div class="pull">&ldquo;I believe in working smarter.&rdquo;</div>
+</section>
+
+<hr class="rule">
+
+<section class="page reveal" id="education">
+  <span class="kicker">THE BACKGROUND</span>
+  <h2>Where I <em>study</em></h2>
+  <div class="grid2">
+    <div class="box"><span class="tag">Currently pursuing</span><h3>BS Data Science</h3><p>Pak-Austria Fachhochschule Institute of Applied Sciences and Technology</p></div>
+    <div class="box"><span class="tag">College</span><h3>Jinnah College for Women</h3><p>Peshawar</p></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="page reveal" id="career">
+  <span class="kicker">THE CAREER</span>
+  <h2>From director to <em>data</em></h2>
+  <div class="tl">
+    <div class="e"><span class="when">JULY TO AUGUST 2026</span><h3>Machine Learning Intern</h3><p>Technik Next</p></div>
+    <div class="e"><span class="when">JUNE TO JULY 2026</span><h3>General Director</h3><p>Grow Pakistan. Promoted after starting as Director of Communication.</p></div>
+    <div class="e"><span class="when">MAY 2026</span><h3>Director of Communication</h3><p>Grow Pakistan</p></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="page reveal" id="stories">
+  <span class="kicker">COVER STORIES</span>
+  <h2>My <em>projects</em></h2>
+  <div class="grid2">
+    <div class="box"><span class="tag">Most recent</span><h3>Smart Traffic System PK</h3><p>A project that aims to make Pakistan’s traffic system fast and responsive by using AI on the existing camera network to detect every rule violation.</p></div>
+    <div class="box"><span class="tag">Entrepreneurship | A success</span><h3>Sports Ease Complex</h3><p>A sports complex with multiple sports under one roof, plus an AI-powered app so people can pre-book slots instead of waiting in queues.</p></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="page reveal" id="toolkit">
+  <span class="kicker">THE TOOLKIT</span>
+  <h2>What’s in my <em>bag</em></h2>
+  <div class="chips"><span class="chip">Good Communication</span><span class="chip">Basic Python</span><span class="chip">Basic C++</span></div>
+</section>
+
+<section class="letters reveal" id="contact">
+  <h2>Letters to the editor</h2>
+  <p>Want to work together or just say hi? Write to me.</p>
+  <a class="btn p" href="mailto:fatima24.khattak@gmail.com">Email me</a>
+  <a class="btn b" href="https://www.linkedin.com/in/fatima-khalid-294a422a7">LinkedIn</a>
+  <p>fatima24.khattak@gmail.com</p>
+</section>
+
+<footer>&copy; 2026 FATIMAH KHALID &nbsp;|&nbsp; ISSUE 01</footer>
+
+<script>
+// Pages fade in as you scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); }), { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(s => io.observe(s));
+</script>
+</body>
+</html>
